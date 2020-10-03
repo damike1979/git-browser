@@ -4,19 +4,19 @@ import axios from 'axios'
 import './App.css';
 
 const User = () => {
-  const { id } = useParams()  
+  const { userName } = useParams()  
   const [user, setUser] = useState([]) 
   // const [userId, setId] = useState("")  
     
   useEffect(() => {
-    axios.get(`https://api.github.com/users/${id}/repos`).then(it => {  
+    axios.get(`https://api.github.com/users/${userName}/repos`).then(it => {  
       setUser((it.data))  
     })  
     return () => {}  
-  }, [id])  
+  }, [userName])  
    
   return <div>
-              <div>{id}</div>
+              <div>{ userName }</div>
               {user.map(it => <div><li>{it.name}</li></div>)}
          </div>  
 }
