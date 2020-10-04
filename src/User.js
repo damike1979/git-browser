@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom' 
-import axios from 'axios'
+import { useParams, Link } from 'react-router-dom'; 
+import axios from 'axios';
 import './App.css';
 
 const User = () => {
@@ -15,9 +15,9 @@ const User = () => {
     return () => {}  
   }, [userName])  
    
-  return <div>
-              <div>{ userName }</div>
-              {user.map(it => <div><li>{it.name}</li></div>)}
+  return <div className="body">
+              {user.map(it => 
+              <div key ={it.name}><li><Link to={`/${userName}/${it.name}`}>{it.name}</Link></li></div>)}
          </div>  
 }
 

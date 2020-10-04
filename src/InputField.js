@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import './App.css';
+import './My.css';
 
 const InputField = (props) => {
   let history = useHistory();
@@ -21,10 +22,11 @@ const InputField = (props) => {
     //setUserInput('')
   }
     
-   return <div>
-     <input type="text" id="input-field" value={userInput} onChange={onChange} name="sampleInput" placeholder="Enter username"/>
-     <button id="search-button" onClick={onClick} value={userInput}>Search</button>
-   </div>
+   return <div className="form-group">
+            <div>Давай, вводи имя пользователя</div>
+            <input type="text" className="form-field" id="input-field" value={userInput} onChange={onChange} placeholder="Enter username"/>
+            <span><button id="search-button" onClick={onClick} value={userInput}>Search</button></span>
+          </div>
 }
 
 export default InputField;
